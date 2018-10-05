@@ -1,0 +1,58 @@
+<%= link_to "Transactions", transactions_path %>
+
+<h1>Transfer page</h1>
+
+<%= form_tag transactions_path @transfer do |f| %>
+
+  <%= label_tag :amount %>
+  <br/>
+  <%= number_field_tag :amount %>
+
+  <h3>Sender</h3>
+  <div id="radioBtnSelectSender">
+    <label data-attr="user">
+      <%= radio_button_tag :sender_type, "User", checked: true %>User</label>
+    <label data-attr="team">
+      <%= radio_button_tag :sender_type, "Team" %>Team</label>
+    <label data-attr="stock">
+      <%= radio_button_tag :sender_type, "Stock" %>Stock</label>
+  </div>
+  <div class="form-group userDropDown">
+    <%= label_tag :user %>
+    <%= select_tag :sender_id, options_for_select(User.all.collect{ |u| [u.name, u.id] }), {required: true} %>
+  </div>
+  <div class="form-group teamDropDown">
+    <%= label_tag :team %>
+    <%= select_tag :sender_id, options_for_select(Team.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+  </div>
+  <div class="form-group stockDropDown">
+    <%= label_tag :stock %>
+    <%= select_tag :sender_id, options_for_select(Stock.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+  </div>
+
+  <h3>Recipient</h3>
+  <div id="radioBtnSelectRecipient">
+    <label data-attr="user">
+      <%= radio_button_tag :recipient_type, "User", checked: true %>User</label>
+    <label data-attr="team">
+      <%= radio_button_tag :recipient_type, "Team" %>Team</label>
+    <label data-attr="stock">
+      <%= radio_button_tag :recipient_type, "Stock" %>Stock</label>
+  </div>
+  <div class="form-group userRecipientDropDown">
+    <%= label_tag :user %>
+    <%= select_tag :recipient_id, options_for_select(User.all.collect{ |u| [u.name, u.id] }), {required: true} %>
+  </div>
+  <div class="form-group teamRecipientDropDown">
+    <%= label_tag :team %>
+    <%= select_tag :recipient_id, options_for_select(Team.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+  </div>
+  <div class="form-group stockRecipientDropDown">
+    <%= label_tag :stock %>
+    <%= select_tag :recipient_id, options_for_select(Stock.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+  </div>
+  <br />
+
+  <%= submit_tag "Transfer" %>
+
+<% end %>

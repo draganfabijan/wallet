@@ -1,0 +1,13 @@
+<%= link_to "Transfer", transfer_path %>
+<h1> Transactions</h1>
+
+<% @transactions.each do |transaction| %>
+  Id: <%= transaction.id %>
+  Amount: <%= transaction.amount %>
+  <% if transaction.initial_amount? %>
+    initial_amount
+  <% end %>
+
+    Type:<%= transaction.type %>
+  <br />
+<% end %>
