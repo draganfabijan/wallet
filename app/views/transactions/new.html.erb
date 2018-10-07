@@ -17,17 +17,17 @@
     <label data-attr="stock">
       <%= radio_button_tag :sender_type, "Stock" %>Stock</label>
   </div>
-  <div class="form-group userDropDown">
+  <div class="form-group userSenderDropDown">
     <%= label_tag :user %>
-    <%= select_tag :sender_id, options_for_select(User.all.collect{ |u| [u.name, u.id] }), {required: true} %>
+    <%= select_tag :sender_id, options_for_select(User.all.collect{ |u| [u.name, u.id] }), { required: true } %>
   </div>
-  <div class="form-group teamDropDown">
+  <div class="form-group teamSenderDropDown">
     <%= label_tag :team %>
-    <%= select_tag :sender_id, options_for_select(Team.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+    <%= select_tag :sender_id, options_for_select(Team.all.collect{ |u| [u.name, u.id] }), { required: true, disabled: "disabled" } %>
   </div>
-  <div class="form-group stockDropDown">
+  <div class="form-group stockSenderDropDown">
     <%= label_tag :stock %>
-    <%= select_tag :sender_id, options_for_select(Stock.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+    <%= select_tag :sender_id, options_for_select(Stock.all.collect{ |u| [u.name, u.id] }), { required: true, disabled: "disabled" } %>
   </div>
 
   <h3>Recipient</h3>
@@ -41,15 +41,15 @@
   </div>
   <div class="form-group userRecipientDropDown">
     <%= label_tag :user %>
-    <%= select_tag :recipient_id, options_for_select(User.all.collect{ |u| [u.name, u.id] }), {required: true} %>
+    <%= select_tag :recipient_id, options_for_select(User.all.collect{ |u| [u.name, u.id] }), { required: true } %>
   </div>
   <div class="form-group teamRecipientDropDown">
     <%= label_tag :team %>
-    <%= select_tag :recipient_id, options_for_select(Team.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+    <%= select_tag :recipient_id, options_for_select(Team.all.collect{ |u| [u.name, u.id] }), { required: true, disabled: "disabled" } %>
   </div>
   <div class="form-group stockRecipientDropDown">
     <%= label_tag :stock %>
-    <%= select_tag :recipient_id, options_for_select(Stock.all.collect{ |u| [u.name, u.id] }), {required: true, disabled: "disabled"} %>
+    <%= select_tag :recipient_id, options_for_select(Stock.all.collect{ |u| [u.name, u.id] }), { required: true, disabled: "disabled" } %>
   </div>
   <br />
 
