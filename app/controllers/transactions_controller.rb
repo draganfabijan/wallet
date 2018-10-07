@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
   before_action :find_sender, only: :create
   before_action :find_recipient, only: :create
 
-  def transfer
+  def new
     @transaction = Transaction.new
   end
 
@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
 
       redirect_to transactions_path # TODO add some notice
     else
-      render :transfer # TODO add alert based on condition that is not fullfil from 11 line 
+      render :transfer # TODO add alert based on condition that is not fullfil from 11 line
     end
   end
 
